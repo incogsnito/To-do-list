@@ -21,4 +21,8 @@ document.getElementById("plus").addEventListener("click", function () {
   }
 });
 
-
+unOrdered.addEventListener("click", (e) => {
+  if (e.target.classList.contains("list-style")) {
+    e.target.remove();
+  }
+});
