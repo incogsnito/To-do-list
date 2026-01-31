@@ -1,6 +1,8 @@
 const unOrdered = document.getElementById("task-preview");
 
-document.getElementById("plus").addEventListener("click", function () {
+localStorage.getItem("list");
+
+function taskAdd() {
   let list = document.createElement("li"); //Create necessary elements.
   list.setAttribute("class", "list-style");
   //Give elements a class.
@@ -19,10 +21,26 @@ document.getElementById("plus").addEventListener("click", function () {
     If input field is left empty, then an alert will pop up.
      */
   }
+}
+
+document.getElementById("plus").addEventListener("click", () => {
+  taskAdd();
+
+  localStorage.setItem("list", unOrdered.innerHTML);
+});
+
+document.getElementById("fadd-task").addEventListener("keyup", (e) => {
+  if (e.key != "Enter") return;
+
+  localStorage.setItem("list", unOrdered.innerHTML);
+  taskAdd();
 });
 
 unOrdered.addEventListener("click", (e) => {
   if (e.target.classList.contains("list-style")) {
     e.target.remove();
+    localStorage.setItem("list", unOrdered.innerHTML);
   }
 });
+
+unOrdered.innerHTML = localStorage.getItem("list", unOrdered.innerHTML);
