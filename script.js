@@ -7,8 +7,8 @@ function taskAdd() {
   list.setAttribute("class", "list-style");
   //Give elements a class.
 
-  const addTask = document.getElementById("fadd-task").value;
-  list.textContent = addTask;
+  const addTask = document.getElementById("fadd-task");
+  list.textContent = addTask.value;
 
   //This code grabs the value given in the input field and puts it into a list.
 
@@ -21,6 +21,7 @@ function taskAdd() {
     If input field is left empty, then an alert will pop up.
      */
   }
+  addTask.value = "";
 }
 
 document.getElementById("plus").addEventListener("click", () => {
