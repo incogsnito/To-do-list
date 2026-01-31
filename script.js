@@ -12,7 +12,7 @@ function taskAdd() {
 
   //This code grabs the value given in the input field and puts it into a list.
 
-  if (addTask) {
+  if (addTask.value) {
     unOrdered.append(list);
   } else {
     alert("Please input a task!");
